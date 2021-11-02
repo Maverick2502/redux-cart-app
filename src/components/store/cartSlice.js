@@ -1,4 +1,4 @@
-const { createSlice } = require("@reduxjs/toolkit");
+import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -23,7 +23,7 @@ const cartSlice = createSlice({
         });
       } else {
         existingItem.quantity++;
-        existingItem.totalPrice += newItem.price;
+        existingItem.totalPrice += existingItem.totalPrice + newItem.price;
       }
     },
     removeItemFromCart(state, action) {
